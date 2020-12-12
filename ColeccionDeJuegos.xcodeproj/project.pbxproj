@@ -14,6 +14,7 @@
 		7560ED8F258489CA0060C3E3 /* ColeccionDeJuegos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7560ED8D258489CA0060C3E3 /* ColeccionDeJuegos.xcdatamodeld */; };
 		7560ED91258489CC0060C3E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7560ED90258489CC0060C3E3 /* Assets.xcassets */; };
 		7560ED94258489CC0060C3E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7560ED92258489CC0060C3E3 /* LaunchScreen.storyboard */; };
+		7560ED9C25849EFA0060C3E3 /* JuegosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7560ED9B25849EFA0060C3E3 /* JuegosViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		7560ED90258489CC0060C3E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7560ED93258489CC0060C3E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7560ED95258489CC0060C3E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7560ED9B25849EFA0060C3E3 /* JuegosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuegosViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				7560ED92258489CC0060C3E3 /* LaunchScreen.storyboard */,
 				7560ED95258489CC0060C3E3 /* Info.plist */,
 				7560ED8D258489CA0060C3E3 /* ColeccionDeJuegos.xcdatamodeld */,
+				7560ED9B25849EFA0060C3E3 /* JuegosViewController.swift */,
 			);
 			path = ColeccionDeJuegos;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7560ED9C25849EFA0060C3E3 /* JuegosViewController.swift in Sources */,
 				7560ED89258489CA0060C3E3 /* ViewController.swift in Sources */,
 				7560ED85258489C90060C3E3 /* AppDelegate.swift in Sources */,
 				7560ED87258489CA0060C3E3 /* SceneDelegate.swift in Sources */,
