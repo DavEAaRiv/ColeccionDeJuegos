@@ -5,12 +5,23 @@ class JuegosViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     @IBOutlet weak var JuegoImageView: UIImageView!
     @IBOutlet weak var tituloTextField: UITextField!
+    @IBOutlet weak var agregarActualizacionBoton: UIButton!
+    @IBOutlet weak var eliminarBoton: UIButton!
     
     var imagePicker = UIImagePickerController();
+    var juego:Juego? = nil;
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self;
+        if juego != nil{
+            JuegoImageView.image = UIImage(data: (juego!.imagen!) as Data);
+            tituloTextField.text = juego!.titulo;
+            agregarActualizacionBoton.setTitle("Actualizar", for: .normal);
+        }
+        else{
+            eliminarBoton.isHidden = true;
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -25,21 +36,36 @@ class JuegosViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func camaraTapped(_ sender: Any) {
+        imagePicker.sourceType = .camera;
+        present(imagePicker, animated: true, completion: nil);
     }
     
     @IBAction func agregarTapped(_ sender: Any) {
         let appDelegate =  (UIApplication.shared.delegate as! AppDelegate);
         let contexto = appDelegate.persistentContainer.viewContext;
         
-        let juego = Juego(context: contexto);
-        juego.titulo = tituloTextField.text;
-        juego.imagen = JuegoImageView.image?.jpegData(compressionQuality: 0.50);
-        
         if (tituloTextField.text == "" || JuegoImageView.image === nil){
             print("Debe llenar todos los campos.");
         }else{
+            if juego != nil {
+                juego!.titulo! = tituloTextField.text!;
+                juego!.imagen = JuegoImageView.image?.jpegData(compressionQuality: 0.50);
+            }else{
+                let juego = Juego(context: contexto);
+                juego.titulo = tituloTextField.text;
+                juego.imagen = JuegoImageView.image?.jpegData(compressionQuality: 0.50);
+            }
             appDelegate.saveContext();
             navigationController?.popViewController(animated: true);
         }
+    }
+    
+    @IBAction func eliminarTapped(_ sender: Any) {
+        let appDelegate =  (UIApplication.shared.delegate as! AppDelegate);
+        let contexto = appDelegate.persistentContainer.viewContext;
+        
+        contexto.delete(juego!);
+        appDelegate.saveContext();
+        navigationController?.popViewController(animated: true);
     }
 }
